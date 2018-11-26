@@ -1,9 +1,9 @@
 import React, { ConcurrentMode } from "react";
 import ReactDOM from "react-dom";
-import Main from './containers/index';
+import App from './containers/App/App';
 
 ReactDOM.createRoot(document.getElementById("app")).render(
   <ConcurrentMode>
-    <Main />
+    <App />
   </ConcurrentMode>
 );
