@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import * as Style from './style';
 
 import StateInitializers from '../StateInitializers/StateInitializers';
-import Compound from '../Compound/Compound';
+import Compound from '../Compound';
 
 const WaitingComponent = Component => {
   return props => (
