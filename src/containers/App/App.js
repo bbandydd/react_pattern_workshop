@@ -2,7 +2,7 @@ import React, { Suspense, lazy, Component, useState } from 'react';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import * as Style from './style';
 
-import StateInitializers from '../StateInitializers/StateInitializers';
+import StateInitializers from '../StateInitializers';
 import Compound from '../Compound';
 
 const WaitingComponent = Component => {
