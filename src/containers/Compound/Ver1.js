@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Toggle extends Component {
+export default class Ver1 extends Component {
   static On = ({ on, children }) => on && children;
   static Off = ({ on, children }) => !on && children;
   static Button = ({ on, toggle }) => <button onClick={toggle}>Toggle</button>
