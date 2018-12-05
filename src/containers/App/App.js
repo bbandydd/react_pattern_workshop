@@ -4,6 +4,7 @@ import * as Style from './style';
 
 import StateInitializers from '../StateInitializers';
 import Compound from '../Compound';
+import Context from '../Context';
 
 const WaitingComponent = Component => {
   return props => (
@@ -25,10 +26,14 @@ export default class App extends Component {
             <Route path="/compound">
               <NavLink to="/compound">Compound</NavLink>
             </Route>
+            <Route path="/context">
+              <NavLink to="/context">Context</NavLink>
+            </Route>
           </Style.Menu>
           <Style.Content>
             <Route exact path="/" component={WaitingComponent(StateInitializers)} />
             <Route path="/compound" component={WaitingComponent(Compound)} />
+            <Route path="/context" component={WaitingComponent(Context)} />
           </Style.Content>
         </div>
       </Router>

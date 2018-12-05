@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Ver1 extends Component {
-  static On = ({ on, children }) => on && children;
-  static Off = ({ on, children }) => !on && children;
-  static Button = ({ on, toggle }) => <button onClick={toggle}>Toggle</button>
+export default class Before extends Component {
   static defaultProps = { onToggle: () => {} }
 
   state = { on: false }
@@ -16,15 +13,13 @@ export default class Ver1 extends Component {
   }
 
   render() {
-    const children = React.Children.map(
-      this.props.children,
-      child =>
-        React.cloneElement(child, {
-          on: this.state.on,
-          toggle: this.toggle
-        }),
-    );
+    const { whenOn, whenOff } = this.props;
 
-    return <div>{children}</div>
+    return (
+      <div>
+        <span>{this.state.on ? whenOn : whenOff}</span>
+        <button onClick={this.toggle}>Toggle</button>
+      </div>
+    );
   }
 }
