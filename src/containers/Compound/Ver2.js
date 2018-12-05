@@ -1,30 +1,12 @@
-import React, { Component, createContext } from 'react';
+import React, { Component } from 'react';
 
-const MyContext = createContext({
-  on: false,
-  toggle: () => {}
-});
-
-export default class Ver2 extends Component {
-  static On = ({ children }) => (
-    <MyContext.Consumer>
-      {contextValue => contextValue.on && children}
-    </MyContext.Consumer>
-  )
-
-  static Off = ({ children }) => (
-    <MyContext.Consumer>
-      {contextValue => !contextValue.on && children}
-    </MyContext.Consumer>
-  );
-
-  static Button = () => (
-    <MyContext.Consumer>
-      {contextValue => <button onClick={contextValue.toggle}> Toggle </button>}
-    </MyContext.Consumer>
-  );
-
+export default class Ver1 extends Component {
+  static On = ({ on, children }) => on && children;
+  static Off = ({ on, children }) => !on && children;
+  static Button = ({ on, toggle }) => <button onClick={toggle}>Toggle</button>
   static defaultProps = { onToggle: () => {} }
+
+  state = { on: false }
 
   toggle = () => {
     this.setState(
@@ -33,16 +15,16 @@ export default class Ver2 extends Component {
     )
   }
 
-  state = {
-    on: false,
-    toggle: this.toggle,
-  }
-
   render() {
-    return (
-      <MyContext.Provider value={this.state}>
-        {this.props.children}
-      </MyContext.Provider>
-    )
+    const children = React.Children.map(
+      this.props.children,
+      child =>
+        React.cloneElement(child, {
+          on: this.state.on,
+          toggle: this.toggle
+        }),
+    );
+
+    return <div>{children}</div>
   }
 }

@@ -1,26 +1,28 @@
-import React, { Component, createContext, useContext } from 'react';
+import React, { Component, createContext } from 'react';
 
 const MyContext = createContext({
   on: false,
   toggle: () => {}
 });
 
-export default class Ver3 extends Component {
+export default class Ver2 extends Component {
+  static On = ({ children }) => (
+    <MyContext.Consumer>
+      {contextValue => contextValue.on && children}
+    </MyContext.Consumer>
+  )
 
-  static On = ({ children }) => {
-    const context = useContext(MyContext);
-    return context.on && children
-  }
+  static Off = ({ children }) => (
+    <MyContext.Consumer>
+      {contextValue => !contextValue.on && children}
+    </MyContext.Consumer>
+  );
 
-  static Off = ({ children }) => {
-    const context = useContext(MyContext);
-    return !context.on && children
-  }
-
-  static Button = () => {
-    const context = useContext(MyContext);
-    return <button onClick={context.toggle}> Toggle </button>
-  }
+  static Button = () => (
+    <MyContext.Consumer>
+      {contextValue => <button onClick={contextValue.toggle}> Toggle </button>}
+    </MyContext.Consumer>
+  );
 
   static defaultProps = { onToggle: () => {} }
 
