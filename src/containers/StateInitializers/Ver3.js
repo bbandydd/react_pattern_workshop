@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 export default class Ver1 extends Component {
-  static defaultProps = { onToggle: () => {} }
-  initialState = { on: false }
+  static defaultProps = { onToggle: () => {}, initialOn: false }
+  initialState = { on: this.props.initialOn }
   state = this.initialState
 
   toggle = () => {

@@ -1,10 +1,10 @@
-import React, { Suspense, lazy, Component, useState } from 'react';
+import React, { Suspense, lazy, Component } from 'react';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import * as Style from './style';
 
-import StateInitializers from '../StateInitializers';
-import Compound from '../Compound';
-import Context from '../Context';
+const StateInitializers = lazy(() => import('../StateInitializers'));
+const Compound = lazy(() => import('../Compound'));
+const Context = lazy(() => import('../Context'));
 
 const WaitingComponent = Component => {
   return props => (
