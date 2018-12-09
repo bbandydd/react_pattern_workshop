@@ -11,7 +11,7 @@ export default () => {
       <Ver1
         whenOn="Toggle is on"
         whenOff="Toggle is Off"
-        whenOnCallback={on => console.log('toggle', on)}
+        onToggle={on => console.log('toggle', on)}
       />
 
       <h2>Ver2</h2>
