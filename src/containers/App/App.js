@@ -9,6 +9,7 @@ import RenderProps from '../RenderProps';
 import RenderPropsFinal from '../RenderProps/hands-on/final';
 import RenderPropsWork from '../RenderProps/hands-on/work';
 import PropsGetter from '../PropsGetter';
+import StateReducer from '../StateReducer';
 
 const WaitingComponent = Component => {
   return props => (
@@ -39,6 +40,9 @@ export default class App extends Component {
             <Route path="/propsgetter">
               <NavLink to="/propsgetter">Props getter</NavLink>
             </Route>
+            <Route path="/statereducer">
+              <NavLink to="/statereducer">State Reducer</NavLink>
+            </Route>
           </Style.Menu>
           <Style.Content>
             <Route exact path="/" component={WaitingComponent(StateInitializers)} />
@@ -48,6 +52,7 @@ export default class App extends Component {
             <Route path="/rednerprops/final" component={WaitingComponent(RenderPropsFinal)} />
             <Route path="/rednerprops/work" component={WaitingComponent(RenderPropsWork)} />
             <Route path="/propsgetter" component={WaitingComponent(PropsGetter)} />
+            <Route path="/statereducer" component={WaitingComponent(StateReducer)} />
           </Style.Content>
         </div>
       </Router>
