@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, Component, useState } from 'react';
+import React, { Suspense, Component } from 'react';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import * as Style from './style';
 
@@ -8,6 +8,7 @@ import Context from '../Context';
 import RenderProps from '../RenderProps';
 import RenderPropsFinal from '../RenderProps/hands-on/final';
 import RenderPropsWork from '../RenderProps/hands-on/work';
+import PropsGetter from '../PropsGetter';
 
 const WaitingComponent = Component => {
   return props => (
@@ -31,8 +32,12 @@ export default class App extends Component {
             </Route>
             <Route path="/context">
               <NavLink to="/context">Context</NavLink>
+            </Route>
             <Route path="/rednerprops">
               <NavLink to="/rednerprops">Redner Props</NavLink>
+            </Route>
+            <Route path="/propsgetter">
+              <NavLink to="/propsgetter">Props getter</NavLink>
             </Route>
           </Style.Menu>
           <Style.Content>
@@ -42,6 +47,7 @@ export default class App extends Component {
             <Route path="/rednerprops" component={WaitingComponent(RenderProps)} />
             <Route path="/rednerprops/final" component={WaitingComponent(RenderPropsFinal)} />
             <Route path="/rednerprops/work" component={WaitingComponent(RenderPropsWork)} />
+            <Route path="/propsgetter" component={WaitingComponent(PropsGetter)} />
           </Style.Content>
         </div>
       </Router>
