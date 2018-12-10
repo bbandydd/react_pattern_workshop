@@ -1,15 +1,16 @@
-import React, { Suspense, Component } from 'react';
+import React, { Suspense, lazy, Component } from 'react';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import * as Style from './style';
 
-import StateInitializers from '../StateInitializers';
-import Compound from '../Compound';
-import Context from '../Context';
-import RenderProps from '../RenderProps';
-import RenderPropsFinal from '../RenderProps/hands-on/final';
-import RenderPropsWork from '../RenderProps/hands-on/work';
-import PropsGetter from '../PropsGetter';
-import StateReducer from '../StateReducer';
+const StateInitializers = lazy(() => import('../StateInitializers'));
+const Compound = lazy(() => import('../Compound'));
+const Context = lazy(() => import('../Context'));
+
+const RenderProps = lazy(() => import('../RenderProps'));
+const RenderPropsFinal = lazy(() => import('../RenderProps/hands-on/final'));
+const RenderPropsWork = lazy(() => import('../RenderProps/hands-on/work'));
+const PropsGetter = lazy(() => import('../PropsGetter'));
+const StateReducer = lazy(() => import('../StateReducer'));
 
 const WaitingComponent = Component => {
   return props => (

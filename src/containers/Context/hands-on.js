@@ -21,7 +21,7 @@ const Layer4 = ({ count, increment }) => (
   </div>
 );
 
-export default class Ver1 extends Component {
+export default class HandsOn extends Component {
   state = {
     count: 0,
   }
