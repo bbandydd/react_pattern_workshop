@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-// 將ver0加入新的文字
-// form
-export default class Ver1 extends Component {
+export default class Ver0 extends Component {
   static defaultProps = { onToggle: () => {} }
 
   state = { on: false }
@@ -15,11 +13,9 @@ export default class Ver1 extends Component {
   }
 
   render() {
-    const { whenOn, whenOff } = this.props;
-
     return (
       <div>
-        <span>{this.state.on ? whenOn : whenOff}</span>
+        <span>{this.state.on ? 'on' : 'off'}</span>
         <button onClick={this.toggle}>Toggle</button>
       </div>
     );

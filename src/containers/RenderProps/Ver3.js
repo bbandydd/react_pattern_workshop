@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Ver3 extends Component {
+export default class Ver4 extends Component {
   state = { on: false }
 
   toggle = () => {
@@ -13,11 +13,11 @@ export default class Ver3 extends Component {
   render() {
     const { whenOn, whenOff } = this.props;
     const { on } = this.state;
-    console.log('React.Children', React.Children);
+
     return (
       <React.Fragment>
         <span>{on ? whenOn : whenOff}</span>
-        {this.props.children({
+        {this.props.renderToggle({
           on,
           toggle: this.toggle
          })}

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Ver2 extends Component {
-  static defaultProps = { onToggle: () => {} }
-
+export default class Ver3 extends Component {
   state = { on: false }
 
   toggle = () => {
@@ -17,18 +15,13 @@ export default class Ver2 extends Component {
     const { on } = this.state;
 
     return (
-      <div>
+      <React.Fragment>
         <span>{on ? whenOn : whenOff}</span>
-        <button
-          onClick={this.toggle}
-          style={{
-            backgroundColor: on ? 'green' : 'red',
-            outline: 'none',
-          }}
-        >
-          Toggle
-        </button>
-      </div>
+        {this.props.children({
+          on,
+          toggle: this.toggle
+         })}
+      </React.Fragment>
     );
   }
 }
