@@ -1,6 +1,6 @@
 import React from 'react';
-import Ver0 from './Ver0';
 import Ver1 from './Ver1';
+import Ver2 from './Ver2';
 
 export default class StateReducerIndex extends React.Component {
   initialState = { timesClicked: 0 }
@@ -20,8 +20,8 @@ export default class StateReducerIndex extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h2>Ver 0</h2>
-        <Ver0
+        <h2>Ver 1</h2>
+        <Ver1
           toggleTimes={3}
         >
           {({ on, getTogglerProps }) => (
@@ -32,10 +32,10 @@ export default class StateReducerIndex extends React.Component {
               {on ? "click on" : "click off"}
             </button>
           )}
-        </Ver0>
+        </Ver1>
 
-        <h2>Ver 1</h2>
-        <Ver1
+        <h2>Ver 2</h2>
+        <Ver2
           onToggle={on => {
             this.setState(({ timesClicked }) => ({
                timesClicked: timesClicked + 1,
@@ -55,7 +55,7 @@ export default class StateReducerIndex extends React.Component {
               {this.state.timesClicked > 4 && 'Click too many times!'}
             </React.Fragment>
           )}
-        </Ver1>
+        </Ver2>
 
       </React.Fragment>
     )

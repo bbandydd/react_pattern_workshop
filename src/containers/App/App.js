@@ -7,8 +7,6 @@ const Compound = lazy(() => import('../Compound'));
 const Context = lazy(() => import('../Context'));
 
 const RenderProps = lazy(() => import('../RenderProps'));
-const RenderPropsFinal = lazy(() => import('../RenderProps/hands-on/final'));
-const RenderPropsWork = lazy(() => import('../RenderProps/hands-on/work'));
 const PropsGetter = lazy(() => import('../PropsGetter'));
 const StateReducer = lazy(() => import('../StateReducer'));
 
@@ -50,8 +48,6 @@ export default class App extends Component {
             <Route path="/compound" component={WaitingComponent(Compound)} />
             <Route path="/context" component={WaitingComponent(Context)} />
             <Route path="/rednerprops" component={WaitingComponent(RenderProps)} />
-            <Route path="/rednerprops/final" component={WaitingComponent(RenderPropsFinal)} />
-            <Route path="/rednerprops/work" component={WaitingComponent(RenderPropsWork)} />
             <Route path="/propsgetter" component={WaitingComponent(PropsGetter)} />
             <Route path="/statereducer" component={WaitingComponent(StateReducer)} />
           </Style.Content>

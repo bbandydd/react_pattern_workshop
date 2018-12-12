@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-export default class Ver1 extends Component {
+export default class Ver0 extends Component {
   state = { on: false }
-
 
   toggle = () => {
     this.setState(
@@ -11,20 +10,15 @@ export default class Ver1 extends Component {
     )
   }
 
-  getStateAndHelpers = () => {
-    return {
-      on: this.state.on,
-      togglerProps: { // collection for common Props
-        "aria-pressed": this.state.on,
-        onClick: this.toggle
-      }
-    };
-  }
-
   render() {
+    const { on } = this.state;
+
     return (
       <React.Fragment>
-        {this.props.children(this.getStateAndHelpers())}
+        {this.props.children({
+          on,
+          toggle: this.toggle
+         })}
       </React.Fragment>
     );
   }

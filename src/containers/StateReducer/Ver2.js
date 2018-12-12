@@ -6,26 +6,39 @@ export default class Ver0 extends Component {
   static defaultProps = {
     onToggle: () => {},
     onReset: () => {},
-    initialOn: false
+    initialOn: false,
+    stateReducer: (state, changes) => changes,
   };
+
+
   // 元件內部多一個 toggleTimes 來控制目前的 toggle 次數
   initialState = { on: this.props.initialOn, currentToggleTimes: 0 };
 
   state = this.initialState;
 
-  toggle = () => {
-    // 每次 toggle 時判斷有沒有超過使用者定義的 toggle 次數上限
-    if (this.state.currentToggleTimes >= this.props.toggleTimes) {
-      alert('toggle too much')
-      return;
-    }
-    this.setState(
-      ({ on, currentToggleTimes }) => ({
-        on: !on,
-        currentToggleTimes: currentToggleTimes + 1 }),
-      () => this.props.onToggle(this.state.on),
-    );
+  internalSetState(changes, callback) {
+    this.setState(state => {
+      // handle function setState call
+      const changesObject =
+        typeof changes === 'function' ? changes(state) : changes
+
+      // apply state reducer
+      const reducedChanges =
+        this.props.stateReducer(state, changesObject) || {}
+
+      // remove the type so it's not set into state
+      const {type: ignoredType, ...onlyChanges} = reducedChanges
+
+      // return null if there are no changes to be made
+      return Object.keys(onlyChanges).length ? onlyChanges : null
+    }, callback)
   }
+
+  toggle = () =>
+    this.internalSetState(
+      ({on}) => ({on: !on}),
+      () => this.props.onToggle(this.state.on),
+    )
 
   getTogglerProps = ({ onClick, ...props } = {}) => ({
     'aria-pressed': this.state.on,

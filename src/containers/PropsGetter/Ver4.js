@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-export default class Ver1 extends Component {
+const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args));
+
+export default class Ver3 extends Component {
   state = { on: false }
 
 
@@ -11,13 +13,16 @@ export default class Ver1 extends Component {
     )
   }
 
+  getTogglerProps = ({ onClick, ...props } = {}) => ({
+    'aria-pressed': this.state.on,
+    onClick: callAll(onClick, this.toggle),
+    ...props,
+  })
+
   getStateAndHelpers = () => {
     return {
       on: this.state.on,
-      togglerProps: { // collection for common Props
-        "aria-pressed": this.state.on,
-        onClick: this.toggle
-      }
+      getTogglerProps: this.getTogglerProps
     };
   }
 
