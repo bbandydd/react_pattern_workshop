@@ -25,10 +25,9 @@ export default class Ver3 extends Component {
   static defaultProps = { onToggle: () => {} }
 
   toggle = () => {
-    this.setState(
-      ({ on }) => ({ on: !on }),
-      () => this.props.onToggle(this.state.on),
-    )
+    this.setState({
+      on: !this.state.on,
+    })
   }
 
   state = {

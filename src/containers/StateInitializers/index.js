@@ -7,6 +7,7 @@ export default () => {
   return (
     <React.Fragment>
       <h2>Ver1: 透過按鈕切換on、off</h2>
+      <hr/>
       <Ver1>
         <Ver1.On>The button is on</Ver1.On>
         <Ver1.Off>The button is off</Ver1.Off>

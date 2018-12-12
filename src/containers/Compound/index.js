@@ -7,30 +7,35 @@ import Ver4 from './Ver4';
 export default () => {
   return (
     <React.Fragment>
-      <h2>Ver1</h2>
+      <h2>Ver1: 透過按鈕切換on、off，並顯示不同的文字描述</h2>
+      <hr/>
       <Ver1
         whenOn="Toggle is on"
         whenOff="Toggle is Off"
-        onToggle={on => console.log('toggle', on)}
       />
 
-      <h2>Ver2</h2>
-      <Ver2
-        onToggle={ on => console.log('toggle', on) }
-      >
+      <h2>Ver2: 實作static On、Off、Button</h2>
+      <li>將UI元件透過this.props.children傳入parent component，利用React.children.map來render</li>
+      <li>並透過React.cloneElement傳props給child</li>
+      <hr/>
+      <Ver2>
         <Ver2.On>The button is on</Ver2.On>
         <Ver2.Off>The button is off</Ver2.Off>
         <Ver2.Button />
       </Ver2>
 
-      <h2>Ver3</h2>
+      <h2>Ver3: 使用React Context API修改</h2>
+      <li>使用Context API的Provider、Consumer達到共享state</li>
+      <hr/>
       <Ver3>
         <Ver3.On>The button is on</Ver3.On>
         <Ver3.Off>The button is off</Ver3.Off>
         <Ver3.Button />
       </Ver3>
 
-      <h2>Ver4</h2>
+      <h2>Ver4: 使用React 16.7 useContext修改</h2>
+      <li>stateless component使用useContext</li>
+      <hr/>
       <Ver4>
         <Ver4.On>The button is on</Ver4.On>
         <Ver4.Off>The button is off</Ver4.Off>
