@@ -3,10 +3,15 @@ import React, { Component, createContext, useContext } from 'react';
 const MyContext = createContext();
 
 const Layer2 = () => (
-  <div style={{ border: '1px solid', padding: '10px' }}>
-    Layer2
-    <Layer3 />
-  </div>
+  <MyContext.Consumer>
+    {contextValue => (
+      <div style={{ border: '1px solid', padding: '10px' }}>
+        Layer2 - { contextValue.count }
+        <button onClick={contextValue.increment}>+++</button>
+        <Layer3 />
+      </div>
+    )}
+  </MyContext.Consumer>
 );
 
 const Layer3 = () => {
