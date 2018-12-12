@@ -16,7 +16,8 @@ export const Menu = styled.div`
     }
 
     &.active {
-      color: #fe3e00;
+      color: rgb(255, 195, 0);
+      border-bottom: 3px solid rgb(255, 195, 0);
     }
   }
 `;

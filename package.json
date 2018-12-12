@@ -11,6 +11,7 @@
   "license": "ISC",
   "private": true,
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "react": "16.7.0-alpha.2 - next",
     "react-dom": "16.7.0-alpha.2 - next",
     "react-router-dom": "^4.3.1",
