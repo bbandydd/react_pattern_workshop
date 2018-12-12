@@ -25,16 +25,7 @@ export default class App extends Component {
         <div>
           <Style.Menu>
             <Route exact path="/">
-              <NavLink exact to="/">State Initializers</NavLink>
-            </Route>
-            <Route path="/compound">
-              <NavLink to="/compound">Compound</NavLink>
-            </Route>
-            <Route path="/context">
-              <NavLink to="/context">Context</NavLink>
-            </Route>
-            <Route path="/rednerprops">
-              <NavLink to="/rednerprops">Redner Props</NavLink>
+              <NavLink exact to="/">Redner Props</NavLink>
             </Route>
             <Route path="/propsgetter">
               <NavLink to="/propsgetter">Props getter</NavLink>
@@ -42,12 +33,21 @@ export default class App extends Component {
             <Route path="/statereducer">
               <NavLink to="/statereducer">State Reducer</NavLink>
             </Route>
+            <Route path="/stateinitial">
+              <NavLink to="/stateinitial">State Initializers</NavLink>
+            </Route>
+            <Route path="/context">
+              <NavLink to="/context">Context</NavLink>
+            </Route>
+            <Route path="/compound">
+              <NavLink to="/compound">Compound</NavLink>
+            </Route>
           </Style.Menu>
           <Style.Content>
-            <Route exact path="/" component={WaitingComponent(StateInitializers)} />
+            <Route exact path="/" component={WaitingComponent(RenderProps)} />
             <Route path="/compound" component={WaitingComponent(Compound)} />
             <Route path="/context" component={WaitingComponent(Context)} />
-            <Route path="/rednerprops" component={WaitingComponent(RenderProps)} />
+            <Route path="/stateinitial" component={WaitingComponent(StateInitializers)} />
             <Route path="/propsgetter" component={WaitingComponent(PropsGetter)} />
             <Route path="/statereducer" component={WaitingComponent(StateReducer)} />
           </Style.Content>
