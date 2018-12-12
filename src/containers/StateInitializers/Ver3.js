@@ -6,10 +6,9 @@ export default class Ver1 extends Component {
   state = this.initialState
 
   toggle = () => {
-    this.setState(
-      ({ on }) => ({ on: !on }),
-      () => this.props.onToggle(this.state.on),
-    )
+    this.setState({
+      on: !this.state.on,
+    })
   }
 
   reset = () => {
