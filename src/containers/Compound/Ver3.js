@@ -5,7 +5,7 @@ const MyContext = createContext({
   toggle: () => {}
 });
 
-export default class Ver2 extends Component {
+export default class Ver3 extends Component {
   static On = ({ children }) => (
     <MyContext.Consumer>
       {contextValue => contextValue.on && children}

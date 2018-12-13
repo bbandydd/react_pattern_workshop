@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Ver0 extends Component {
+export default class HandsOn extends Component {
   static defaultProps = { onToggle: () => {} }
 
   state = { on: false }

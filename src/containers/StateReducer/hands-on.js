@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args));
 
-export default class Ver0 extends Component {
+export default class HandsOn extends Component {
   static defaultProps = {
     onToggle: () => {},
     onReset: () => {},

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args));
 
-export default class Ver3 extends Component {
+export default class Ver4 extends Component {
   state = { on: false }
 
 
