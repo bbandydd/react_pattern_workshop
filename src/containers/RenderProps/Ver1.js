@@ -7,16 +7,14 @@ export default class Ver1 extends Component {
 
   toggle = () => {
     this.setState(
-      ({ on }) => ({ on: !on }),
-      () => this.props.onToggle(this.state.on),
+      ({ on }) => ({ on: !on })
     )
   }
 
   render() {
     return (
       <div>
-        <span>{this.state.on ? 'on' : 'off'}</span>
-        <button onClick={this.toggle}>Toggle</button>
+        <button onClick={this.toggle}>Toggle {this.state.on ? 'on' : 'off'} </button>
       </div>
     );
   }

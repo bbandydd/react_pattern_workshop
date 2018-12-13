@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 export default class Ver2 extends Component {
+
   state = { on: false }
 
   toggle = () => {
     this.setState(
       ({ on }) => ({ on: !on }),
-      () => this.props.onToggle(this.state.on),
     )
   }
 
@@ -15,13 +15,10 @@ export default class Ver2 extends Component {
     const { on } = this.state;
 
     return (
-      <React.Fragment>
+      <div>
         <span>{on ? whenOn : whenOff}</span>
-        {this.props.children({
-          on,
-          toggle: this.toggle
-         })}
-      </React.Fragment>
+        <button onClick={this.toggle}>Toggle {on}</button>
+      </div>
     );
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Ver1 from './Ver1';
 import Ver2 from './Ver2';
 import Ver3 from './Ver3';
-import Ver4 from './Ver4';
+import Extra from './Extra';
 
 export default () => {
   return (
@@ -26,7 +26,7 @@ export default () => {
         )}
       </Ver1>
 
-      <h2>Ver 1: props collection</h2>
+      <h2>Ver 2: props collection</h2>
       <Ver2
         onToggle={on => console.log("toggle", on)}
       >
@@ -47,7 +47,7 @@ export default () => {
 
       <li>缺點：props 容易被overwrite</li>
 
-      <h2>Ver 2</h2>
+      <h2>Ver 3</h2>
       <Ver3
         onToggle={on => console.log("toggle", on)}
       >
@@ -79,8 +79,8 @@ export default () => {
       <li>寫成funciton 主要是要強調 overwrite common props</li>
       <li>使用者所提供的 onClick 就不會蓋過我們元件原始的 onClick 行為</li>
 
-      <h2>Ver 3</h2>
-      <Ver4
+      <h2>Extra</h2>
+      <Extra
         onToggle={on => console.log("toggle", on)}
       >
         {({ on, getTogglerProps }) => (
@@ -106,7 +106,7 @@ export default () => {
             </button>
           </div>
         )}
-      </Ver4>
+      </Extra>
     </React.Fragment>
   )
 }
