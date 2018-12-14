@@ -5,7 +5,7 @@ const MyContext = createContext({
   toggle: () => {}
 });
 
-export default class Ver4 extends Component {
+export default class Extra extends Component {
 
   static On = ({ children }) => {
     const context = useContext(MyContext);

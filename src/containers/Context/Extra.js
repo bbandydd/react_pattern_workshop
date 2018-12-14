@@ -9,33 +9,28 @@ const Layer2 = () => (
   </div>
 );
 
-const Layer3 = () => (
-  <MyContext.Consumer>
-    {contextValue => (
-      <div style={{ border: '1px solid', padding: '10px' }}>
-        Layer3 - { contextValue.count }
-        <button onClick={contextValue.increment}>+++</button>
-        <Layer4 />
-      </div>
-    )}
-  </MyContext.Consumer>
-);
+const Layer3 = () => {
+  return (
+    <div style={{ border: '1px solid', padding: '10px' }}>
+      Layer3
+      <Layer4 />
+    </div>
+  );
+};
 
-class Layer4 extends Component {
-  // React 16.6
-  static contextType = MyContext;
+const Layer4 = () => {
+  // React 16.7
+  const context = useContext(MyContext);
 
-  render() {
-    return (
-      <div style={{ border: '1px solid', padding: '10px' }}>
-        Layer4 - { this.context.count }
-        <button onClick={this.context.increment}>+++</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div style={{ border: '1px solid', padding: '10px' }}>
+      Layer4 - { context.count }
+      <button onClick={context.increment}>+++</button>
+    </div>
+  );
+};
 
-export default class Ver2 extends Component {
+export default class Extra extends Component {
   increment = () => {
     this.setState({
       count: this.state.count + 1,

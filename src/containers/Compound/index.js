@@ -2,7 +2,7 @@ import React from 'react';
 import Ver1 from './Ver1';
 import Ver2 from './Ver2';
 import Ver3 from './Ver3';
-import Ver4 from './Ver4';
+import Extra from './Extra';
 
 export default () => {
   return (
@@ -33,14 +33,14 @@ export default () => {
         <Ver3.Button />
       </Ver3>
 
-      <h2>Ver4: 使用React 16.7 useContext修改</h2>
+      <h2>Extra: 使用React 16.7 useContext修改</h2>
       <li>stateless component使用useContext</li>
       <hr/>
-      <Ver4>
-        <Ver4.On>The button is on</Ver4.On>
-        <Ver4.Off>The button is off</Ver4.Off>
-        <Ver4.Button />
-      </Ver4>
+      <Extra>
+        <Extra.On>The button is on</Extra.On>
+        <Extra.Off>The button is off</Extra.Off>
+        <Extra.Button />
+      </Extra>
     </React.Fragment>
   )
 }
