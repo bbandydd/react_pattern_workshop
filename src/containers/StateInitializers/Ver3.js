@@ -12,9 +12,7 @@ export default class Ver3 extends Component {
   }
 
   reset = () => {
-    this.setState(this.initialState, () => {
-      this.props.onReset(this.initialState);
-    })
+    this.setState(this.initialState);
   }
 
   render() {
