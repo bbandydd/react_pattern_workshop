@@ -10,6 +10,7 @@ const Layer2 = () => (
 );
 
 const Layer3 = () => (
+  // React 16.3
   <MyContext.Consumer>
     {contextValue => (
       <div style={{ border: '1px solid', padding: '10px' }}>
