@@ -3,11 +3,9 @@ import React, { Component } from 'react';
 export default class Ver2 extends Component {
   state = { on: false }
 
-
   toggle = () => {
     this.setState(
-      ({ on }) => ({ on: !on }),
-      () => this.props.onToggle(this.state.on),
+      ({ on }) => ({ on: !on })
     )
   }
 

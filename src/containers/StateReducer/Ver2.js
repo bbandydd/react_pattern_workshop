@@ -5,43 +5,42 @@ const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args));
 export default class Ver2 extends Component {
   static defaultProps = {
     onToggle: () => {},
-    onReset: () => {},
-    initialOn: false,
     stateReducer: (state, changes) => changes,
   };
 
-
-  // 元件內部多一個 toggleTimes 來控制目前的 toggle 次數
-  initialState = { on: this.props.initialOn, currentToggleTimes: 0 };
-
-  state = this.initialState;
+  state = {
+    on: false,
+    internalState: 'internalState',
+  };
 
   internalSetState(changes, callback) {
     this.setState(state => {
-      // handle function setState call
+      // 模擬setState 第一個參數, 可以是 function 或 object, 若原本傳入 function, 要把 state 回傳。
       const changesObject =
         typeof changes === 'function' ? changes(state) : changes
 
-      // apply state reducer
+      // 使用定義好的 StateReducer, 並接收要更新的state
       const reducedChanges =
         this.props.stateReducer(state, changesObject) || {}
 
-      // remove the type so it's not set into state
-      const {type: ignoredType, ...onlyChanges} = reducedChanges
+      // 去除不能被外部控制的state
+      const {
+        internalState: ignoredInternalState,
+        ...onlyChanges
+      } = reducedChanges
 
-      // return null if there are no changes to be made
+      // 假如沒有變動就回傳 null
       return Object.keys(onlyChanges).length ? onlyChanges : null
     }, callback)
   }
 
   toggle = () =>
     this.internalSetState(
-      ({on}) => ({on: !on}),
-      () => this.props.onToggle(this.state.on),
+      (state) => ({ on: !state.on }),
+      () => this.props.onToggle(this.state.on), // 呼叫外面傳來的callback function
     )
 
   getTogglerProps = ({ onClick, ...props } = {}) => ({
-    'aria-pressed': this.state.on,
     onClick: callAll(onClick, this.toggle),
     ...props,
   })

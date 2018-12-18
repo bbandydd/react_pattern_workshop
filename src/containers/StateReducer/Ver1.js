@@ -5,13 +5,12 @@ const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args));
 export default class Ver1 extends Component {
   static defaultProps = {
     onToggle: () => {},
-    onReset: () => {},
-    initialOn: false
   };
-  // 元件內部多一個 toggleTimes 來控制目前的 toggle 次數
-  initialState = { on: this.props.initialOn, currentToggleTimes: 0 };
 
-  state = this.initialState;
+  state = {
+    on: false,
+    currentToggleTimes: 0
+  }
 
   toggle = () => {
     // 每次 toggle 時判斷有沒有超過使用者定義的 toggle 次數上限

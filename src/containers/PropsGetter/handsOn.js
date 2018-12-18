@@ -5,8 +5,7 @@ export default class HandsOn extends Component {
 
   toggle = () => {
     this.setState(
-      ({ on }) => ({ on: !on }),
-      () => this.props.onToggle(this.state.on),
+      ({ on }) => ({ on: !on })
     )
   }
 

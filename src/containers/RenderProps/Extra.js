@@ -14,13 +14,5 @@ const useToggle = () => {
   };
 }
 
-
-const Extra = ({ children, ...props }) => {
-  console.log(children, props)
-  return children(useToggle(props));
-}
-
-export default Extra;
-
-export { useToggle };
+export default useToggle;
 

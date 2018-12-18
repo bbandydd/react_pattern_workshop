@@ -3,18 +3,24 @@ import Ver1 from './Ver1';
 import Ver2 from './Ver2';
 
 export default class StateReducerIndex extends React.Component {
-  initialState = { timesClicked: 0 }
-
-  state = this.initialState
+  state = {
+    timesClicked: 0
+  }
 
   toggleStateReducer = (state, changes) => {
-    if (changes.type === 'forced') {
-      return changes
-    }
     if (this.state.timesClicked >= 4) {
-      return {...changes, on: false}
+      return {
+        ...changes,
+        on: false
+      };
     }
-    return changes
+    return changes;
+  }
+
+  handleToggle = on => {
+    this.setState({
+      timesClicked: this.state.timesClicked + 1,
+    })
   }
 
   render() {
@@ -26,7 +32,6 @@ export default class StateReducerIndex extends React.Component {
         >
           {({ on, getTogglerProps }) => (
             <button
-              className="button1"
               {...getTogglerProps()}
             >
               {on ? "click on" : "click off"}
@@ -36,11 +41,7 @@ export default class StateReducerIndex extends React.Component {
 
         <h2>Ver 2</h2>
         <Ver2
-          onToggle={on => {
-            this.setState(({ timesClicked }) => ({
-               timesClicked: timesClicked + 1,
-             }))
-          }}
+          onToggle={this.handleToggle}
           stateReducer={this.toggleStateReducer}
         >
           {({ on, getTogglerProps }) => (

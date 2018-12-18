@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 export default class Ver4 extends Component {
   state = { on: false }
@@ -12,10 +12,9 @@ export default class Ver4 extends Component {
   render() {
     const { on } = this.state;
 
-    const renderedChildren = this.props.children && this.props.children({
+    return this.props.children && this.props.children({
       on,
       toggle: this.toggle
      });
-    return renderedChildren && React.Children.only(renderedChildren);
   }
 }

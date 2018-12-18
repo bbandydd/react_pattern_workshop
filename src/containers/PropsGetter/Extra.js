@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 
+
+/*
+  取代以下程式碼用
+
+  () => {
+      this.toggle();
+      onClick && onClick();
+    },
+ */
 const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args));
 
 export default class Extra extends Component {
   state = { on: false }
 
-
   toggle = () => {
     this.setState(
-      ({ on }) => ({ on: !on }),
-      () => this.props.onToggle(this.state.on),
+      ({ on }) => ({ on: !on })
     )
   }
 
