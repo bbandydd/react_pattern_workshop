@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 
 export default class HandsOn extends Component {
-  static defaultProps = { onToggle: () => {} }
-
   state = { on: false }
 
   toggle = () => {
     this.setState(
-      ({ on }) => ({ on: !on }),
-      () => this.props.onToggle(this.state.on),
+      ({ on }) => ({ on: !on })
     )
   }
 
   render() {
     return (
       <div>
-        <span>{this.state.on ? 'on' : 'off'}</span>
-        <button onClick={this.toggle}>Toggle</button>
+        <button onClick={this.toggle}>Toggle {this.state.on ? 'on' : 'off'} </button>
       </div>
     );
   }
