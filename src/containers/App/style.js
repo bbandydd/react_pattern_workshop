@@ -5,6 +5,7 @@ export const Menu = styled.div`
   align-items: center;
   background: #333;
   padding: 15px;
+  overflow: scroll;
 
   > a {
     color: #fff;
