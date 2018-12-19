@@ -13,10 +13,12 @@ export default () => {
           <div>
             {on ? "The button is on" : "The button is off"}
             <hr />
+            <span>button 1</span>
             <button className="button1" onClick={toggle} aria-pressed={on}>
               {on ? "click on" : "click off"}
             </button>
             <hr />
+            <span>button 2</span>
             <button className="button2" onClick={toggle} aria-pressed={on} aria-label="custom-button2">
               {on ? "click on" : "click off"}
             </button>
@@ -25,15 +27,19 @@ export default () => {
       </Ver1>
 
       <h2>Ver 2: props collection</h2>
+      <li>利用 getStateAndHelpers收集要傳出去的state</li>
+      <hr />
       <Ver2>
         {({ on, togglerProps }) => (
           <div>
             {on ? "The button is on" : "The button is off"}
             <hr />
+            <span>button 1</span>
             <button className="button1" {...togglerProps} onClick={() => alert('btn1')}>
               {on ? "click on" : "click off"}
             </button>
             <hr />
+            <span>button 2</span>
             <button className="button2" {...togglerProps} aria-label="custom-button2">
               {on ? "click on" : "click off"}
             </button>
@@ -42,11 +48,14 @@ export default () => {
       </Ver2>
 
       <h2>Ver 3: props getter</h2>
+      <li>讓 getStateAndHelpers 可以接受客製化的props</li>
+      <hr />
       <Ver3>
         {({ on, getTogglerProps }) => (
           <div>
             {on ? "The button is on" : "The button is off"}
             <hr />
+            <span>button 1</span>
             <button
               className="button1"
               {...getTogglerProps({
@@ -56,6 +65,7 @@ export default () => {
               {on ? "click on" : "click off"}
             </button>
             <hr />
+            <span>button 2</span>
             <button
               className="button2"
               {...getTogglerProps()}
@@ -73,6 +83,7 @@ export default () => {
           <div>
             {on ? "The button is on" : "The button is off"}
             <hr />
+            <span>button 1</span>
             <button
               className="button1"
               {...getTogglerProps()}
@@ -80,6 +91,7 @@ export default () => {
               {on ? "click on" : "click off"}
             </button>
             <hr />
+            <span>button 2</span>
             <button
               className="button2"
               {...getTogglerProps({
